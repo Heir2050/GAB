@@ -1,0 +1,208 @@
+header{
+        background-color: #000f23;
+
+    nav {
+        height: 5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+
+        li {
+            margin-left: 1rem;
+
+            a{
+                font-size: 1rem;
+                font-weight: 400;
+                color: #fff;
+            }
+        }
+    }
+
+    .logo{
+        color: #fff;
+    }
+}
+
+p {
+    text-align: justify;
+}
+
+// Nos missions
+
+.eglise {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.5rem;
+    padding: 3rem;
+    
+    img{
+        border-radius: .8rem;
+        // width: 500px;
+    }
+
+    .mission {
+        text-align: center;
+    }
+
+    p {
+        text-align: center;
+    }
+}
+
+.video {
+    width: 100%;
+    align-content: center;
+}
+
+// bapteme
+
+.img_top {
+    position: relative;
+    margin-top: 2rem;
+    img {
+        border-radius: .8rem;
+        height: 50vh;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        font-size: 3rem;
+        transform: translate(-50%, -50%);
+    }
+}
+
+// Form
+
+
+.cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // min-height: 100vh;
+    // background: #1f242d;
+    padding: 25px;
+}
+
+.cont form{
+    width: 700px;
+    // padding: 40px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+// .row form, .row table {
+//     width: 50%;
+// }
+
+form .row{
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.row .column{
+    flex: 1 1 250px
+}
+
+.column .title{
+    font-size: 20px;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.column .input-box{
+    margin: 15px 0;
+}
+
+.input-box span{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.input-box input, select{
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+.column .flex{
+    display: flex;
+    gap: 15px;
+}
+
+.flex .input-box{
+    margin-top: 5px;
+}
+
+.input-box img{
+    height: 34px;
+    margin-top: 5px;
+    filter: drop-shadow(0 0 1px #000);
+    cursor: pointer;
+}
+
+form .btn{
+    width: 100%;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid #000f23;
+    outline: none;
+    border-radius: 6px;
+    font-size: 17px;
+    color: #000;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+form .btn:hover{
+    background: #000f23;
+    color: #fff;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    right: 50%;
+    text-align: center;
+    color: #fff;
+    background-color: #000f23;
+    transform: translate(50%, 100%);
+
+    p{
+        margin: 0;
+        text-align: center;
+        padding: 1rem;
+    }
+}
+
+// Table
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+
+  
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+th, td {
+    padding: 15px;
+}

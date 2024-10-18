@@ -1,0 +1,18 @@
+
+ALTER TABLE
+    guichet ADD CONSTRAINT fk_guichet_id FOREIGN KEY(id_quartier) REFERENCES quartier(id_quartier);
+
+
+    voici la requette qui me permet d'afficher la table guichet  $sql = "SELECT * FROM guichet as gc join banque as bq on gc.id_banque = bq.id_banque order by id_guichet DESC;";
+$guichet = $bd->query($sql); comment puis afficher alors les elements a modifier dans la page de modification de cette table?
+
+
+
+
+
+# Affiché tous les Guichets automatique
+$sql = "SELECT * FROM guichet as gc join banque as bq on gc.id_banque = bq.id_banque order by id_guichet DESC;";
+$statement = $bd->query($sql);  // Executer la requette sql
+
+// Recuperer tous les banques
+$banques = $statement->fetchAll(PDO::FETCH_ASSOC);

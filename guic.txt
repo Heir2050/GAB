@@ -1,0 +1,90 @@
+<?php
+    include "header.php";
+    include "config.php";
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['id_user'])) {
+    header("Location: login.php"); // Rediriger vers la page de login si non connecté
+    exit;
+}
+?>
+
+<?php
+# Affiché tous les Guichets automatique
+$sql = "SELECT * FROM guichet as gc join banque as bq on gc.id_banque = bq.id_banque order by id_guichet DESC;";
+$statement = $bd->query($sql);  // Executer la requette sql
+
+// Recuperer tous les banques
+$banques = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+
+#Suppression des elements
+if (isset($_GET['delete'])) {
+    $delete = $bd->query("DELETE FROM guichet WHERE id_guichet=".$_GET['delete']);
+
+    header("location:index.php");
+}
+
+?>
+
+<style>
+    td {
+        padding: .5rem;
+    }
+</style>
+
+<section>
+    <h1 class="titre">Liste de tous les guichets</h1>
+    <div class="cont">
+        <?php if ($statement): ?>
+            <table style="width: 60%;">
+                <tr>
+                    <th>ID</th>
+                    <th>Nom de du guichet</th>
+                    <th>Nom de la banque</th>
+                    <th>Etat</th>
+                    <th>Action</th>
+                </tr>
+                <?php foreach ($banques as $banque): ?>
+                    <tr>
+                        <td><?= htmlspecialchars($banque['id_guichet']) ?></td>
+                        <td><?= htmlspecialchars($banque['nom_guichet']) ?></td>
+                        <td><?= htmlspecialchars($banque['nom_banque']) ?></td>
+                        <td><?= htmlspecialchars($banque['status']) ?></td>
+                        <td class="ds">
+                            <a href="up_guichet.php?id_guichet=<?= $banque["id_guichet"]; ?>" class="bts warning">Modifier</a>
+                            <a href="index.php?delete=<?= $banque["id_guichet"]; ?>" class="bts danger">Supprimer</a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php endif; ?>
+    </div>
+</section>
+
+<?php include "footer.php"; ?>
+
+
+
+SELECT 
+        gc.id_guichet, 
+        gc.nom_guichet, 
+        bq.nom_banque, 
+        pr.nom_province, 
+        cm.nom_commune, 
+        zn.nom_zone, 
+        qt.nom_quartier
+    FROM 
+        guichet AS gc
+    JOIN 
+        banque AS bq ON gc.id_banque = bq.id_banque
+    JOIN 
+        province AS pr ON gc.id_guichet = gc.id_guichet
+    JOIN 
+        commune AS cm ON pr.id_province = cm.id_province
+    JOIN 
+        zone AS zn ON cm.id_commune = zn.id_commune
+    JOIN 
+        quartier AS qt ON zn.id_zone = qt.id_zone
+    ORDER BY 
+        gc.id_guichet DESC;
