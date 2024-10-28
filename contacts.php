@@ -10,6 +10,7 @@ if (isset($_POST['ajouter'])) {
     $numer_tel = trim($_POST['tel']);
     $email = trim($_POST['email']);
     $message = trim($_POST['message']);
+    $nom = trim($_POST['message']);
 
     // Vérification de l'email
     if (empty($email)) {
@@ -38,12 +39,17 @@ if (isset($_POST['ajouter'])) {
         $errors['message'] = "Le message est obligatoire.";
     }
 
+    if (empty($nom)) {
+        $errors['nom'] = "Le nom est obligatoire.";
+    }
+
     // Si il y a pas d'erreur, alors insert les données dans la base des données
     if (empty($errors)) {
-        $insert = $bd->prepare("INSERT INTO contacts (numer_tel, email, message) VALUES (:numer_tel, :email, :message)");
+        $insert = $bd->prepare("INSERT INTO contacts (numer_tel, email, nom, message) VALUES (:numer_tel, :email, nom, :message)");
         $insert->bindParam(':numer_tel', $numer_tel, PDO::PARAM_STR);
         $insert->bindParam(':email', $email, PDO::PARAM_STR);
         $insert->bindParam(':message', $message, PDO::PARAM_STR);
+        $insert->bindParam(':nom', $nom, PDO::PARAM_STR);
 
         $insert->execute();
 
@@ -80,20 +86,28 @@ if (isset($_GET['delete'])) {
     <div class="cont" style="justify-content: center;min-height:initial;">
         <div class="row">
             <form method="POST" style="width: 500px;">
-                <!-- <strong></strong> -->
-                <!-- <h3 class="title">Ajouter un quartier</h3> -->
+                <?php if (isset($_SESSION['id_user'])): ?>
+                    <div class="hed_list">
+                        <a href="a_contacts.php" class="btn">Afficher les contacts</a>
+                    </div>
+                <?php endif; ?>
                 <div class="column">
+                    <div class="input-box">
+                        <span>Nom complet:</span>
+                        <input type="text" name="nom" placeholder="Votre nom">
+                        <small class="message_text"><?= isset($errors['nom']) ? $errors['nom'] : '' ?></small>
+                    </div>
+                    <div class="input-box">
+                        <span>Email:</span>
+                        <input type="email" name="email" placeholder="Votre Email">
+                        <small class="message_text"><?= isset($errors['email']) ? $errors['email'] : '' ?></small>
+                    </div>
                     <div class="input-box">
                         <span>Téléphone:</span>
                         <input type="text" name="tel" placeholder="Votre numero de téléphone">
                             <?php if(!empty($errors)): ?>
                                 <small class="message_text"><?= isset($errors['numer_tel']) ? $errors['numer_tel'] : '' ?></small>
                         <?php endif; ?>
-                    </div>
-                    <div class="input-box">
-                        <span>Email:</span>
-                        <input type="email" name="email" placeholder="Ajouter un quartier">
-                        <small class="message_text"><?= isset($errors['email']) ? $errors['email'] : '' ?></small>
                     </div>
                     <div class="input-box">
                         <span>Message:</span>

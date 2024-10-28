@@ -41,22 +41,23 @@ if (isset($_POST['update'])) {
     <h3 class="titre">Liste de contacts</h3>
     <div class="cont">
         <?php if ($statement): ?>
-            <table style="width: 70%;">
+            <table style="width: 80%;">
                 <tr>
                     <th>ID</th>
-                    <th>Numero de Téléphone</th>
+                    <th>Nom complet</th>
                     <th>Email</th>
+                    <th>Numero de Téléphone</th>
                     <th>Message</th>
                     <th>Action</th>
                 </tr>
                 <?php foreach ($contacts as $contact): ?>
                     <tr>
                         <td><?= htmlspecialchars($contact['id_contact']) ?></td>
-                        <td><?= htmlspecialchars($contact['numer_tel']) ?></td>
+                        <td><?= htmlspecialchars($contact['name']) ?></td>
                         <td><?= htmlspecialchars($contact['email']) ?></td>
+                        <td><?= htmlspecialchars($contact['numer_tel']) ?></td>
                         <td><?= htmlspecialchars($contact['message']) ?></td>
                         <td class="ds">
-                            <a href="up_contacts.php?id_contact=<?= $contact["id_contact"]; ?>" class="bts danger" style="margin-right: .5rem">Modifier</a>
                             <a href="a_contacts.php?delete=<?= $contact["id_contact"]; ?>" class="bts warning">Supprimer</a>
                         </td>
                     </tr>

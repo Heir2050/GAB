@@ -105,7 +105,9 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="index.php" style="color: #fff;"><h1>GAB</h1></a>
+                    <a href="index.php" style="color: #fff;"><h1>
+                        <img src="assets/images/gab.png" alt="logo" style="width: 30%;">
+                    </h1></a>
                 </div>
                 <ul>
                     <?php if (isset($_SESSION['id_user'])): ?>

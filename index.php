@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['search'])) {
 
 <section class="search">
     <div class="container">
-        <h1 class="titre">GAB</h1>
+        <h1 class="titre">Guichets Automatique Burundi</h1>
         <p>Retrouver un guichet automatique les plus proches de vous !</p>
         <form action="" method="GET" style="width: 80%;margin: 0 auto;">
             <div class="form-group">

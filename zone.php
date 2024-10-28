@@ -98,7 +98,7 @@ $zones = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <tr>
                     <th>ID</th>
                     <th>Commune</th>
-                    <th>Quartier</th>
+                    <th>Zone</th>
                     <th>Action</th>
                 </tr>
                 <?php foreach ($zones as $zone): ?>
