@@ -57,6 +57,7 @@ Construisez GAB à partir de la source et installez les dépendances :
 localhost/gab
 ```
 
-![Capture d'Écran de GAB](/assets/images/home.png)
+![Capture d'Écran de GAB](/assets/images/home.PNG)
+
 
 
