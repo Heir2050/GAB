@@ -1,19 +1,16 @@
 # GAB
 
 ## Empowering Access, Transforming Banking Experiences Everywhere
-
 [![last-commit](https://img.shields.io/github/last-commit/Heir2050/GAB?style=flat&logo=git&logoColor=white&color=0080ff)](https://github.com/Heir2050/GAB/commits/main)
 [![repo-top-language](https://img.shields.io/github/languages/top/Heir2050/GAB?style=flat&color=0080ff)](https://github.com/Heir2050/GAB)
 [![repo-language-count](https://img.shields.io/github/languages/count/Heir2050/GAB?style=flat&color=0080ff)](https://github.com/Heir2050/GAB)
 
 ## Technologies Utilisées
-
 [![Markdown](https://img.shields.io/badge/Markdown-000000.svg?style=flat&logo=Markdown&logoColor=white)](https://www.markdownguide.org/)
 [![PHP](https://img.shields.io/badge/PHP-777BB4.svg?style=flat&logo=PHP&logoColor=white)](https://www.php.net/)
 [![CSS](https://img.shields.io/badge/CSS-663399.svg?style=flat&logo=CSS&logoColor=white)](https://www.w3.org/Style/CSS/)
 
 ## Table des Matières
-
 - [Présentation](#présentation)
 - [Commencer](#commencer)
   - [Prérequis](#prérequis)
@@ -39,8 +36,6 @@ Ce projet vise à simplifier la gestion des données géographiques et bancaires
 ### Prérequis
 
 Ce projet nécessite les dépendances suivantes :
-
-- **Langage de programmation** : PHP avec - **XAMP v 8.2** `[XAMPP v8.2](https://www.apachefriends.org/index.html)`
 - **Langage de programmation** : PHP avec [XAMPP v8.2](https://www.apachefriends.org/index.html)
 
 ### Installation
@@ -62,5 +57,6 @@ Construisez GAB à partir de la source et installez les dépendances :
 localhost/gab
 ```
 
-![Capture d'Écran de GAB](/assets/images/gab.png)
+![Capture d'Écran de GAB](/assets/images/home.png)
+
 
